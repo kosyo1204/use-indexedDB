@@ -14,6 +14,8 @@ Webアプリに最適なツール。
 APIを簡単に扱える。
 Promiseベースなので、非同期処理を扱える。
 
+# 目標
+todoリストを作る
 
 ## 参考記事
 https://github.com/dexie/Dexie.js
