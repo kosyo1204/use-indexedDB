@@ -70,4 +70,44 @@ privateは子クラスからもアクセスできない。
 # 5.4 this
 関数の中のthisは、関数の呼び出し方によって決まる。
 アロー関数におけるthisはthisを外側の関数から受け継ぐ。
-つまり、自身のthisを持たない。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+つまり、自身のthisを持たない。
+
+# 5.6 力試し
+// type User = {
+//   name: string;
+//   age: number;
+// }
+
+// function createUser(name: string, age: number): User {
+//   if (name === '') {
+//     throw new Error('名前は空にできません！');
+//   }
+//   return {
+//     name,
+//     age
+//   };
+// }
+
+// function getMessage(user: User, message: string): string {
+//   return `${user.name} (${user.age}) 「${message}」`;
+// }
+
+// const uhyo = createUser("uhyo", 26);
+// console.log(getMessage(uhyo, 'こんにちは'));
+
+class User {
+  private name;
+  private age;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  getMessage(message: string) {
+    return `${this.name} (${this.age}) 「${message}」`;
+  }
+}
+
+const uhyo = new User("uhyo", 26);
+console.log(uhyo.getMessage("こんにちは"));
